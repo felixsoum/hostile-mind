@@ -1,0 +1,45 @@
+﻿using System;
+
+namespace HostileMind
+{
+    public class FinalCaseConcordiaPeel : Room
+    {
+        public FinalCaseConcordiaPeel()
+        {
+            //
+
+            var builder = new RoomBuilder(this);
+
+            builder.FillFloor("floor-marble");
+            builder.FillFloor("floor-test", currentPlan.Find("d0"), 1, 1); //debug
+            builder.FillFloor("floor-test", currentPlan.Find("d1"), 1, 1); //debug
+            //stairs
+            //builder.FillFloor("floor-hstairs", currentPlan.Find("d0"), 2, 4);
+
+            //builder.AddWall("wall-beige", currentPlan.Find("w1"));
+            //builder.AddWall("wall-beige", currentPlan.Find("w2"));
+            builder.AddWall("wall-tunnel2", 1, 178, 2);
+
+            //back to concordia-2
+            var c2 = RoomPlans.Get(typeof(FinalCaseConcordia2).Name);
+            builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d0"), c2.Find("d16").Bottom);
+
+            //to peel
+            var peel = RoomPlans.Get(typeof(FinalCasePeel).Name);
+            builder.AddRoomTransition(typeof(FinalCasePeel), currentPlan.Find("d1"), peel.Find("d0").Right);
+
+            //to concordia-2 (bottom right)
+            //var c2br = RoomPlans.Get(typeof(FinalCaseConcordia2).Name);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d0"), c2br.Find("d0").Left);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d1"), c2br.Find("d1").Left);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d2"), c2br.Find("d2").Left);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d3"), c2br.Find("d3").Left);
+
+            //builder.FillEdges();
+
+            foreach (var c in currentPlan.FindAll("#"))
+              builder.ClearFloor(c);
+
+        }
+    }
+}

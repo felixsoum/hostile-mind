@@ -1,0 +1,70 @@
+﻿using System;
+
+namespace HostileMind
+{
+    public class FinalCasePeel : Room
+    {
+        public FinalCasePeel()
+        {
+            //
+
+            var builder = new RoomBuilder(this);
+
+            //floor
+            builder.FillFloor("floor-platform-Peel");
+            //safety line
+            builder.FillFloor("floor-safety-line", currentPlan.Find("l0"), 88, 1);
+            builder.FillFloor("floor-safety-line", currentPlan.Find("l1"), 88, 1);
+            //debug
+            builder.FillFloor("floor-test", currentPlan.Find("d0"), 1, 1);
+            builder.FillFloor("floor-test", currentPlan.Find("d1"), 1, 1);
+            //stairs
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s0"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s1"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s2"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s3"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s4"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s5"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s6"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s7"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s8"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s9"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s10"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s11"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s12"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s13"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s14"), 2, 4);
+            builder.FillFloor("floor-hstairs", currentPlan.Find("s15"), 2, 4);
+
+
+            //builder.AddWall("wall-beige", currentPlan.Find("w1"));
+            //builder.AddWall("wall-beige", currentPlan.Find("w2"));
+            //builder.AddWall("wall-beige", 2, 89, 12);
+            builder.AddWall("wall-beige", 2, 19, 12);
+            builder.AddWall("wall-beige", 26, 39, 12);
+            builder.AddWall("wall-beige", 52, 65, 12);
+            builder.AddWall("wall-beige", 72, 89, 12);
+
+            //back to concordia-2
+            var cp = RoomPlans.Get(typeof(FinalCaseConcordiaPeel).Name);
+            builder.AddRoomTransition(typeof(FinalCaseConcordiaPeel), currentPlan.Find("d0"), cp.Find("d1").Left);
+
+            //to concordia-2 (bottom right)
+            //var c2br = RoomPlans.Get(typeof(FinalCaseConcordia2).Name);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d0"), c2br.Find("d0").Left);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d1"), c2br.Find("d1").Left);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d2"), c2br.Find("d2").Left);
+            //builder.AddRoomTransition(typeof(FinalCaseConcordia2), currentPlan.Find("d3"), c2br.Find("d3").Left);
+
+            //to peel-mcgill 
+            var pm = RoomPlans.Get(typeof(FinalCasePeelMcgill).Name);
+            builder.AddRoomTransition(typeof(FinalCasePeelMcgill), currentPlan.Find("d1"), pm.Find("d0").Right);
+
+            //builder.FillEdges();
+
+            foreach (var c in currentPlan.FindAll("#"))
+                builder.ClearFloor(c);
+
+        }
+    }
+}

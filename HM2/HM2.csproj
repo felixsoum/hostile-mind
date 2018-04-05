@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1060B616-DD66-4B43-B7C9-31DADB4514D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HM2</RootNamespace>
+    <AssemblyName>HM2</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Game1.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Actors\Actor.cs" />
+    <Compile Include="Source\Actors\ActorCommand\ActorCommand.cs" />
+    <Compile Include="Source\Actors\ActorCommand\MoveActorCommand.cs" />
+    <Compile Include="Source\Actors\ActorCommand\WaitActorCommand.cs" />
+    <Compile Include="Source\Actors\Enemy\EnemyActor.cs" />
+    <Compile Include="Source\Actors\Enemy\EnemyAi.cs" />
+    <Compile Include="Source\Actors\Enemy\HorizontalPatrolAi.cs" />
+    <Compile Include="Source\Actors\Enemy\NullAi.cs" />
+    <Compile Include="Source\Actors\Enemy\VerticalPatrolAi.cs" />
+    <Compile Include="Source\Actors\Enemy\WaypointPatrolAi.cs" />
+    <Compile Include="Source\Actors\PersonActor.cs" />
+    <Compile Include="Source\Actors\PlayerActor.cs" />
+    <Compile Include="Source\Actors\SandraActor.cs" />
+    <Compile Include="Source\Actors\ShadowActor.cs" />
+    <Compile Include="Source\Collision\BoundingBox.cs" />
+    <Compile Include="Source\GameStates\Cinematic\CarCinematic.cs" />
+    <Compile Include="Source\GameStates\Cinematic\CinematicAction.cs" />
+    <Compile Include="Source\GameStates\Cinematic\CinematicImageAction.cs" />
+    <Compile Include="Source\GameStates\Cinematic\CinematicSoundAction.cs" />
+    <Compile Include="Source\GameStates\Cinematic\CinematicState.cs" />
+    <Compile Include="Source\GameStates\Cinematic\CinematicTextAction.cs" />
+    <Compile Include="Source\GameStates\Cinematic\CinematicWaitAction.cs" />
+    <Compile Include="Source\GameStates\Cinematic\driftingCinematic.cs" />
+    <Compile Include="Source\GameStates\Cinematic\GameOverL1WifePath.cs" />
+    <Compile Include="Source\GameStates\Cinematic\GameOverL3.cs" />
+    <Compile Include="Source\GameStates\Cinematic\HospitalCinematic.cs" />
+    <Compile Include="Source\GameStates\Cinematic\IntroCinematic.cs" />
+    <Compile Include="Source\GameStates\Cinematic\RetryCinematic.cs" />
+    <Compile Include="Source\GameStates\Cinematic\SubwayCinematic.cs" />
+    <Compile Include="Source\GameStates\Cinematic\SubwayEndingCinematic.cs" />
+    <Compile Include="Source\GameStates\Cinematic\TutorialCinematic.cs" />
+    <Compile Include="Source\GameStates\GameDirector.cs" />
+    <Compile Include="Source\GameStates\GameState.cs" />
+    <Compile Include="Source\GameStates\LevelState.cs" />
+    <Compile Include="Source\GameStates\NullState.cs" />
+    <Compile Include="Source\Global\Depth.cs" />
+    <Compile Include="Source\Global\Dialog.cs" />
+    <Compile Include="Source\Global\GameInfo.cs" />
+    <Compile Include="Source\Global\Inputs.cs" />
+    <Compile Include="Source\Global\PlayerItems.cs" />
+    <Compile Include="Source\Global\Renderer.cs" />
+    <Compile Include="Source\Global\Sounds.cs" />
+    <Compile Include="Source\Global\Textures.cs" />
+    <Compile Include="Source\Global\Time.cs" />
+    <Compile Include="Source\Global\Util.cs" />
+    <Compile Include="Source\Level\Blocks\Block.cs" />
+    <Compile Include="Source\Level\Blocks\BlockFactory.cs" />
+    <Compile Include="Source\Level\Blocks\ChoiceBlock.cs" />
+    <Compile Include="Source\Level\Blocks\DoorBlock.cs" />
+    <Compile Include="Source\Level\Blocks\FireBlock.cs" />
+    <Compile Include="Source\Level\Blocks\InspectableBlock.cs" />
+    <Compile Include="Source\Level\Blocks\ItemBlock.cs" />
+    <Compile Include="Source\Level\Blocks\ItemToItemBlock.cs" />
+    <Compile Include="Source\Level\Blocks\PushableBlock.cs" />
+    <Compile Include="Source\Level\Blocks\PushableItemBlock.cs" />
+    <Compile Include="Source\Level\Cutscene\Cutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutsceneAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutsceneActorAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutsceneDialogAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutscenePlayerLockAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutsceneRemoveActorAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutsceneSoundAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutsceneStateTransitionAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneAction\CutsceneWaitAction.cs" />
+    <Compile Include="Source\Level\Cutscene\CutsceneServant.cs" />
+    <Compile Include="Source\Level\Cutscene\HospitalGirlCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\HouseAidCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\HouseChaseCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\HouseEscapeCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\MidComaFinalCaseCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\MidComaHospitalCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\MidComaHouseCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\MidComaSubwayCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\SubwayEndingCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\SubwayStartCutscene.cs" />
+    <Compile Include="Source\Level\Cutscene\TutorialCutscene1.cs" />
+    <Compile Include="Source\Level\Cutscene\TutorialCutscene2.cs" />
+    <Compile Include="Source\Level\Cutscene\WifeCutscene.cs" />
+    <Compile Include="Source\Level\FinalCaseLevel.cs" />
+    <Compile Include="Source\Level\HospitalLevel.cs" />
+    <Compile Include="Source\Level\HospitalTextures.cs" />
+    <Compile Include="Source\Level\HouseLevel.cs" />
+    <Compile Include="Source\Level\HouseTextures.cs" />
+    <Compile Include="Source\Level\Item.cs" />
+    <Compile Include="Source\Level\Level.cs" />
+    <Compile Include="Source\Level\Light\Lighting.cs" />
+    <Compile Include="Source\Level\Light\LightSource.cs" />
+    <Compile Include="Source\Level\MidComaLevel.cs" />
+    <Compile Include="Source\Level\OnStep\ActorCommandOnStep.cs" />
+    <Compile Include="Source\Level\OnStep\BlockMessageOnStep.cs" />
+    <Compile Include="Source\Level\OnStep\ChoiceOnStep.cs" />
+    <Compile Include="Source\Level\OnStep\DialogOnStep.cs" />
+    <Compile Include="Source\Level\OnStep\ItemCollectOnStep.cs" />
+    <Compile Include="Source\Level\OnStep\OnStepCommand.cs" />
+    <Compile Include="Source\Level\OnStep\RoomTransitionOnStep.cs" />
+    <Compile Include="Source\Level\OnStep\SingleDialogOnStep.cs" />
+    <Compile Include="Source\Level\OnStep\StateTransitionOnStep.cs" />
+    <Compile Include="Source\Level\Rooms\EndingLevel.cs" />
+    <Compile Include="Source\Level\Rooms\Ending\EndingProxyRoom.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCaseConcordia1.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCaseConcordia2.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCaseConcordiaPeel.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCaseMcgill.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCasePeel.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCasePeelMcgill.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCaseProxyRoom.cs" />
+    <Compile Include="Source\Level\Rooms\FinalCase\FinalCaseTunnelRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorDoctorRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorExplore1.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorExplore2.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorExplore3.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorExplore4.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorHallway.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorKeyRoom1.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorKeyRoom2.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorKeyRoom3.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\Hospital5thFloorUtilityRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalBasementBreakerRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalBasementHallway.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalBasementKeyRoom1.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalBasementKeyRoom2.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalBasementLaundryRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalBasementSwitchRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalBasementUtilityRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalElevator.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalLoganStart.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainCurtainRoom1.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainCurtainRoom2.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainCurtainRoom3.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainExteriorRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainHallway.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainSpareRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainStaffRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainUtilityRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalMainWashRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Hospital\HospitalProxyRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\BathRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\BathRoom2.cs" />
+    <Compile Include="Source\Level\Rooms\House\ClosetRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\ClosetRoom2.cs" />
+    <Compile Include="Source\Level\Rooms\House\ClosetRoom3.cs" />
+    <Compile Include="Source\Level\Rooms\House\CrawlSpaceRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\DiningRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\GuestRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\HouseHallwayOneRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\HouseHallwayTwoRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\KitchenRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\LaundryRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\LivingRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\LockedRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\MasterBedRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\OutsideRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\RecRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\SmallBedRoom.cs" />
+    <Compile Include="Source\Level\Rooms\House\StorageRoom.cs" />
+    <Compile Include="Source\Level\Rooms\MidLevel\MidLevelHospitalRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Room.cs" />
+    <Compile Include="Source\Level\Rooms\RoomBuilder.cs" />
+    <Compile Include="Source\Level\Rooms\RoomPlans\RoomIndex.cs" />
+    <Compile Include="Source\Level\Rooms\RoomPlans\RoomPlan.cs" />
+    <Compile Include="Source\Level\Rooms\RoomPlans\RoomPlans.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayFurnaceRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintHallway1.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintHallway2.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintHallway3.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintHallway4.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintRoom1.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintRoom2.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintRoom3.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayMaintRoom4.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayPlatformLG.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayProxyRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayPuzzleRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwaySecretRoom.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayStreet.cs" />
+    <Compile Include="Source\Level\Rooms\Subway\SubwayTunnelLG.cs" />
+    <Compile Include="Source\Level\RoomTransition.cs" />
+    <Compile Include="Source\Level\SubwayLevel.cs" />
+    <Compile Include="Source\Level\SubwayTextures.cs" />
+    <Compile Include="Source\Level\Tiles\ItemTile.cs" />
+    <Compile Include="Source\Level\Tiles\Tile.cs" />
+    <Compile Include="Source\Level\TutorialLevel.cs" />
+    <Compile Include="Source\Sprites\DoorSprite.cs" />
+    <Compile Include="Source\Sprites\EnemySprite.cs" />
+    <Compile Include="Source\Sprites\NullSprite.cs" />
+    <Compile Include="Source\Sprites\PersonSprite.cs" />
+    <Compile Include="Source\Sprites\PlayerSprite.cs" />
+    <Compile Include="Source\Sprites\SandraSprite.cs" />
+    <Compile Include="Source\Sprites\Sprite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Fonts\Fenix-Regular-OFL.txt" />
+    <Content Include="Content\Fonts\ShareTech-Regular-OFL.txt" />
+    <Content Include="Content\RoomPlans\BathRoom.txt" />
+    <Content Include="Content\RoomPlans\BathRoom2.txt" />
+    <Content Include="Content\RoomPlans\ClosetRoom.txt" />
+    <Content Include="Content\RoomPlans\ClosetRoom2.txt" />
+    <Content Include="Content\RoomPlans\ClosetRoom3.txt" />
+    <Content Include="Content\RoomPlans\CrawlSpaceRoom.txt" />
+    <Content Include="Content\RoomPlans\DiningRoom.txt" />
+    <Content Include="Content\RoomPlans\EndingProxyRoom.txt" />
+    <Content Include="Content\RoomPlans\FinalCaseConcordia1.txt" />
+    <Content Include="Content\RoomPlans\FinalCaseConcordia2.txt" />
+    <Content Include="Content\RoomPlans\FinalCaseConcordiaPeel.txt" />
+    <Content Include="Content\RoomPlans\FinalCaseMcgill.txt" />
+    <Content Include="Content\RoomPlans\FinalCasePeel.txt" />
+    <Content Include="Content\RoomPlans\FinalCasePeelMcgill.txt" />
+    <Content Include="Content\RoomPlans\FinalCaseProxyRoom.txt" />
+    <Content Include="Content\RoomPlans\FinalCaseTunnelRoom.txt" />
+    <Content Include="Content\RoomPlans\GuestRoom.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorDoctorRoom.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorExplore1.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorExplore2.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorExplore3.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorExplore4.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorHallway.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorKeyRoom1.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorKeyRoom2.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorKeyRoom3.txt" />
+    <Content Include="Content\RoomPlans\Hospital5thFloorUtilityRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalBasementBreakerRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalBasementHallway.txt" />
+    <Content Include="Content\RoomPlans\HospitalBasementKeyRoom1.txt" />
+    <Content Include="Content\RoomPlans\HospitalBasementKeyRoom2.txt" />
+    <Content Include="Content\RoomPlans\HospitalBasementLaundryRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalBasementSwitchRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalBasementUtilityRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalElevator.txt" />
+    <Content Include="Content\RoomPlans\HospitalLoganStart.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainCurtainRoom1.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainCurtainRoom2.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainCurtainRoom3.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainExteriorRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainHallway.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainSpareRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainStaffRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainUtilityRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalMainWashRoom.txt" />
+    <Content Include="Content\RoomPlans\HospitalProxyRoom.txt" />
+    <Content Include="Content\RoomPlans\HouseHallwayOneRoom.txt" />
+    <Content Include="Content\RoomPlans\HouseHallwayTwoRoom.txt" />
+    <Content Include="Content\RoomPlans\KitchenRoom.txt" />
+    <Content Include="Content\RoomPlans\LaundryRoom.txt" />
+    <Content Include="Content\RoomPlans\LivingRoom.txt" />
+    <Content Include="Content\RoomPlans\LockedRoom.txt" />
+    <Content Include="Content\RoomPlans\MasterBedRoom.txt" />
+    <Content Include="Content\RoomPlans\MidLevelHospitalRoom.txt" />
+    <Content Include="Content\RoomPlans\OutsideRoom.txt" />
+    <Content Include="Content\RoomPlans\RecRoom.txt" />
+    <Content Include="Content\RoomPlans\StorageRoom.txt" />
+    <Content Include="Content\RoomPlans\SubwayFurnaceRoom.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintHallway1.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintHallway2.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintHallway3.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintHallway4.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintRoom1.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintRoom2.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintRoom3.txt" />
+    <Content Include="Content\RoomPlans\SubwayMaintRoom4.txt" />
+    <Content Include="Content\RoomPlans\SubwayPlatformLG.txt" />
+    <Content Include="Content\RoomPlans\SubwayProxyRoom.txt" />
+    <Content Include="Content\RoomPlans\SubwayPuzzleRoom.txt" />
+    <Content Include="Content\RoomPlans\SubwaySecretRoom.txt" />
+    <Content Include="Content\RoomPlans\SubwayStreet.txt" />
+    <Content Include="Content\RoomPlans\SubwayTunnelLG.txt" />
+    <Content Include="Content\Sounds\beep-beep.wav" />
+    <Content Include="Content\Sounds\car-crash.wav" />
+    <Content Include="Content\Sounds\carrot.wav" />
+    <Content Include="Content\Sounds\cell-ring.wav" />
+    <Content Include="Content\Sounds\door-open.wav" />
+    <Content Include="Content\Sounds\gun-shot.wav" />
+    <Content Include="Content\Sounds\item.wav" />
+    <Content Include="Content\Sounds\push.wav" />
+    <Content Include="Content\Sounds\steps.wav" />
+    <Content Include="Content\Sounds\wood-smack.wav" />
+    <Content Include="Content\Textures\block-bed-test.png" />
+    <Content Include="Content\Textures\block-box-small.png" />
+    <Content Include="Content\Textures\block-bucket.png" />
+    <Content Include="Content\Textures\block-cabinet.png" />
+    <Content Include="Content\Textures\block-chair-brown.png" />
+    <Content Include="Content\Textures\block-chair-white.png" />
+    <Content Include="Content\Textures\block-counter.png" />
+    <Content Include="Content\Textures\block-crate.png" />
+    <Content Include="Content\Textures\block-debris.png" />
+    <Content Include="Content\Textures\block-dryer.png" />
+    <Content Include="Content\Textures\block-fire.png" />
+    <Content Include="Content\Textures\block-fireplace.png" />
+    <Content Include="Content\Textures\block-fridge.png" />
+    <Content Include="Content\Textures\block-garbage.png" />
+    <Content Include="Content\Textures\block-hospital-bed.png" />
+    <Content Include="Content\Textures\block-pooltable.png" />
+    <Content Include="Content\Textures\block-pot-closed.png" />
+    <Content Include="Content\Textures\block-shelf.png" />
+    <Content Include="Content\Textures\block-sink.png" />
+    <Content Include="Content\Textures\block-sofa.png" />
+    <Content Include="Content\Textures\block-table.png" />
+    <Content Include="Content\Textures\block-table2.png" />
+    <Content Include="Content\Textures\block-toilet.png" />
+    <Content Include="Content\Textures\block-tool-cabinet.png" />
+    <Content Include="Content\Textures\block-tub.png" />
+    <Content Include="Content\Textures\block-tv-back.png" />
+    <Content Include="Content\Textures\block-tv.png" />
+    <Content Include="Content\Textures\block-washer.png" />
+    <Content Include="Content\Textures\cinematic-car.png" />
+    <Content Include="Content\Textures\cinematic-gameover-subway1.png" />
+    <Content Include="Content\Textures\cinematic-gameover-wife.png" />
+    <Content Include="Content\Textures\cinematic-moon.png" />
+    <Content Include="Content\Textures\cinematic-phone.png" />
+    <Content Include="Content\Textures\cinematic-subway-1.png" />
+    <Content Include="Content\Textures\cutWire.png" />
+    <Content Include="Content\Textures\door-beatup-1.png" />
+    <Content Include="Content\Textures\door-beatup-2.png" />
+    <Content Include="Content\Textures\door-test.png" />
+    <Content Include="Content\Textures\door-tunnel.png" />
+    <Content Include="Content\Textures\door-wood.png" />
+    <Content Include="Content\Textures\enemy.png" />
+    <Content Include="Content\Textures\enemyOld.png" />
+    <Content Include="Content\Textures\floor-carpet.png" />
+    <Content Include="Content\Textures\floor-concrete-old.png" />
+    <Content Include="Content\Textures\floor-concrete-test.png" />
+    <Content Include="Content\Textures\floor-concrete-test1.png" />
+    <Content Include="Content\Textures\floor-edge-2-LG.png" />
+    <Content Include="Content\Textures\floor-edge-LG.png" />
+    <Content Include="Content\Textures\floor-grass.png" />
+    <Content Include="Content\Textures\floor-hospital.png" />
+    <Content Include="Content\Textures\floor-hstairs.png" />
+    <Content Include="Content\Textures\floor-htracks.png" />
+    <Content Include="Content\Textures\floor-linen.png" />
+    <Content Include="Content\Textures\floor-marble.png" />
+    <Content Include="Content\Textures\floor-platform-GC.png" />
+    <Content Include="Content\Textures\floor-platform-LG.png" />
+    <Content Include="Content\Textures\floor-platform-MG.png" />
+    <Content Include="Content\Textures\floor-platform-Peel.png" />
+    <Content Include="Content\Textures\floor-road-large-vertical.jpg" />
+    <Content Include="Content\Textures\floor-road-large.png" />
+    <Content Include="Content\Textures\floor-safety-line.png" />
+    <Content Include="Content\Textures\floor-sidewalk.png" />
+    <Content Include="Content\Textures\floor-test.png" />
+    <Content Include="Content\Textures\floor-tracks-vstairs.png" />
+    <Content Include="Content\Textures\floor-vtracks.png" />
+    <Content Include="Content\Textures\floor-wood.png" />
+    <Content Include="Content\Textures\floor-wood5.png" />
+    <Content Include="Content\Textures\frame.png" />
+    <Content Include="Content\Textures\h-desk-hospital-back.png" />
+    <Content Include="Content\Textures\h-elevator-hospital-buttons.png" />
+    <Content Include="Content\Textures\h-elevator-hospital-buttonson.png" />
+    <Content Include="Content\Textures\h-elevator-hospital.png" />
+    <Content Include="Content\Textures\h-floor-hospital-bprint1.png" />
+    <Content Include="Content\Textures\h-floor-hospital-bprint2.png" />
+    <Content Include="Content\Textures\h-floor-hospital-bprint3.png" />
+    <Content Include="Content\Textures\h-floor-hospital-bprint4.png" />
+    <Content Include="Content\Textures\h-floor-hospital.png" />
+    <Content Include="Content\Textures\h-Left-hand-print-red.png" />
+    <Content Include="Content\Textures\h-road.png" />
+    <Content Include="Content\Textures\h-roadLines.png" />
+    <Content Include="Content\Textures\h-wall-hospital-breaker-off.png" />
+    <Content Include="Content\Textures\h-wall-hospital-breaker-on.png" />
+    <Content Include="Content\Textures\h-wall-hospital-laundrychute.png" />
+    <Content Include="Content\Textures\h-wall-hospital-nursedesk.png" />
+    <Content Include="Content\Textures\h-wall-hospital-redprints1.png" />
+    <Content Include="Content\Textures\h-wall-hospital-redprints2.png" />
+    <Content Include="Content\Textures\h-wall-hospital-redprints3.png" />
+    <Content Include="Content\Textures\h-wall-hospital-redprints4.png" />
+    <Content Include="Content\Textures\h-wall-hospital.png" />
+    <Content Include="Content\Textures\h-wall-switch-down.png" />
+    <Content Include="Content\Textures\h-wall-switch.png" />
+    <Content Include="Content\Textures\items.png" />
+    <Content Include="Content\Textures\logan-bedRidden.png" />
+    <Content Include="Content\Textures\logo-eye.png" />
+    <Content Include="Content\Textures\npc-body.png" />
+    <Content Include="Content\Textures\npc-body2.png" />
+    <Content Include="Content\Textures\npc-doctor.png" />
+    <Content Include="Content\Textures\npc-gang.png" />
+    <Content Include="Content\Textures\npc-house-wife.png" />
+    <Content Include="Content\Textures\npc-lady.png" />
+    <Content Include="Content\Textures\npc-scott-down.png" />
+    <Content Include="Content\Textures\npc-scott.png" />
+    <Content Include="Content\Textures\npc-stm.png" />
+    <Content Include="Content\Textures\player.png" />
+    <Content Include="Content\Textures\playerOld.png" />
+    <Content Include="Content\Textures\regWire.png" />
+    <Content Include="Content\Textures\stone-brown.png" />
+    <Content Include="Content\Textures\stone-sphere.png" />
+    <Content Include="Content\Textures\tomb.png" />
+    <Content Include="Content\Textures\wall-beige-hole.png" />
+    <Content Include="Content\Textures\wall-beige.png" />
+    <Content Include="Content\Textures\wall-bridge-rail.png" />
+    <Content Include="Content\Textures\wall-concordia-map.png" />
+    <Content Include="Content\Textures\wall-concordia.png" />
+    <Content Include="Content\Textures\wall-fence.png" />
+    <Content Include="Content\Textures\wall-hospital.png" />
+    <Content Include="Content\Textures\wall-mcgill.png" />
+    <Content Include="Content\Textures\wall-metal.png" />
+    <Content Include="Content\Textures\wall-outside.png" />
+    <Content Include="Content\Textures\wall-peel-circle.png" />
+    <Content Include="Content\Textures\wall-peel.png" />
+    <Content Include="Content\Textures\wall-peel1.png" />
+    <Content Include="Content\Textures\wall-peel2.png" />
+    <Content Include="Content\Textures\wall-peel3.png" />
+    <Content Include="Content\Textures\wall-platform-guy.png" />
+    <Content Include="Content\Textures\wall-tunnel-switch-on.png" />
+    <Content Include="Content\Textures\wall-tunnel-switch.png" />
+    <Content Include="Content\Textures\wall-tunnel.png" />
+    <Content Include="Content\Textures\wall-tunnel2.png" />
+    <Content Include="Content\Textures\wall-tunnel3.png" />
+    <Content Include="Content\Textures\white.png" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="app.manifest" />
+    <None Include="Content\Fonts\Courier New.spritefont" />
+    <None Include="Content\Fonts\Courier New.xnb" />
+    <None Include="Content\Fonts\Fenix-Regular.spritefont" />
+    <None Include="Content\Fonts\Fenix-Regular.xnb" />
+    <None Include="Content\Fonts\ShareTech-Regular.spritefont" />
+    <None Include="Content\Fonts\ShareTech-Regular.xnb" />
+    <None Include="Content\Textures\floor-platform-LG.png.orig" />
+    <None Include="Source\Level\Rooms\FinalCase\FinalCaseConcordiaPeel.cs.orig" />
+    <None Include="Source\Level\Rooms\FinalCase\FinalCasePeel.cs.orig" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

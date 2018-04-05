@@ -1,0 +1,11 @@
+.	.	.	.	.	.	.	.	.	.	.	.
+.	b	b	.	b	b	b	.	.	.	.	.
+.	.	.	.	.	.	.	p	.	b	.	.
+.	.	b	p	b	b	.	p	.	.	.	.
+.	.	p	.	.	b	b	b	b	.	.	.
+.	b	b	.	b	b	b	b	b	p	p	.
+.	b	.	.	b	b	b	b	b	.	.	.
+.	b	.	b	b	b	b	b	b	.	.	d0
+.	b	.	b	b	b	b	b	b	b	.	.
+.	b	.	.	i0	b	b	b	b	b	.	.
+.	.	.	.	.	.	.	.	.	.	.	.
