@@ -1,3 +1,3 @@
 # hostile-mind
 school project
-![HMv2](https://i.imgur.com/DGe58HE.png)
+![HMv2](https://i.imgur.com/EzzXZwj.png)
